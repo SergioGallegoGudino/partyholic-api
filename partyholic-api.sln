@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34003.232
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "partyholic-api", "partyholic-api.csproj", "{65C68B40-5191-4992-9011-45781C4E9DC0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65C68B40-5191-4992-9011-45781C4E9DC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65C68B40-5191-4992-9011-45781C4E9DC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65C68B40-5191-4992-9011-45781C4E9DC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65C68B40-5191-4992-9011-45781C4E9DC0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {069CF723-16EA-47CF-B6CD-5888F75FC6CF}
+	EndGlobalSection
+EndGlobal
