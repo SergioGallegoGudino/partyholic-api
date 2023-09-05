@@ -13,9 +13,9 @@ namespace partyholic_api.Controllers
     [ApiController]
     public class MensajesController : ControllerBase
     {
-        private readonly PartyholicContext _context;
+        private readonly partyholicContext _context;
 
-        public MensajesController(PartyholicContext context)
+        public MensajesController(partyholicContext context)
         {
             _context = context;
         }

@@ -13,9 +13,9 @@ namespace partyholic_api.Controllers
     [ApiController]
     public class UsuariosEventoesController : ControllerBase
     {
-        private readonly PartyholicContext _context;
+        private readonly partyholicContext _context;
 
-        public UsuariosEventoesController(PartyholicContext context)
+        public UsuariosEventoesController(partyholicContext context)
         {
             _context = context;
         }

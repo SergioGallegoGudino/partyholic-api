@@ -13,9 +13,9 @@ namespace partyholic_api.Controllers
     [ApiController]
     public class RetarsController : ControllerBase
     {
-        private readonly PartyholicContext _context;
+        private readonly partyholicContext _context;
 
-        public RetarsController(PartyholicContext context)
+        public RetarsController(partyholicContext context)
         {
             _context = context;
         }
