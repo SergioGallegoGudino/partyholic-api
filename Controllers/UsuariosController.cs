@@ -57,7 +57,7 @@ namespace partyholic_api.Controllers
         // DTO POST
         [Route("auth/signup")]
         [HttpPost]
-        public string signup(Usuario usuario)
+        public IActionResult signup(Usuario usuario)
         {
             try
             {
@@ -67,11 +67,11 @@ namespace partyholic_api.Controllers
                 user.Passwd= usuario.Passwd;
                 _context.Usuarios.Add(user);
                 _context.SaveChanges();
-                return "Success";
+                return Ok(new { message = "Success" });
             }
             catch (Exception ex)
             {
-                return ex.ToString();
+                return BadRequest(ex.ToString());
             }
         }
 
