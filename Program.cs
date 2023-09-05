@@ -10,8 +10,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
 // Replace with your connection string.
-var connectionString = "server=localhost;user=root;password=1234;database=partyholic";
+var connectionString = "server=127.0.0.1;user=root;password=root;database=partyholic";
 
 // Replace with your server version and type.
 // Use 'MariaDbServerVersion' for MariaDB.
@@ -20,7 +21,7 @@ var connectionString = "server=localhost;user=root;password=1234;database=partyh
 var serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
 
 // Replace 'YourDbContext' with the name of your own DbContext derived class.
-builder.Services.AddDbContext<PartyholicContext>(
+builder.Services.AddDbContext<partyholicContext>(
     dbContextOptions => dbContextOptions
         .UseMySql(connectionString, serverVersion)
         // The following three options help with debugging, but should
@@ -31,7 +32,6 @@ builder.Services.AddDbContext<PartyholicContext>(
 );
 
 var app = builder.Build();
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

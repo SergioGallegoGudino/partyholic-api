@@ -13,9 +13,9 @@ namespace partyholic_api.Controllers
     [ApiController]
     public class GruposLogroesController : ControllerBase
     {
-        private readonly PartyholicContext _context;
+        private readonly partyholicContext _context;
 
-        public GruposLogroesController(PartyholicContext context)
+        public GruposLogroesController(partyholicContext context)
         {
             _context = context;
         }
@@ -87,7 +87,7 @@ namespace partyholic_api.Controllers
         {
           if (_context.GruposLogros == null)
           {
-              return Problem("Entity set 'PartyholicContext.GruposLogros'  is null.");
+              return Problem("Entity set 'partyholicContext.GruposLogros'  is null.");
           }
             _context.GruposLogros.Add(gruposLogro);
             await _context.SaveChangesAsync();

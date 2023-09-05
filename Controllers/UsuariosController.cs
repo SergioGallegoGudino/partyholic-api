@@ -13,9 +13,9 @@ namespace partyholic_api.Controllers
     [ApiController]
     public class UsuariosController : ControllerBase
     {
-        private readonly PartyholicContext _context;
+        private readonly partyholicContext _context;
 
-        public UsuariosController(PartyholicContext context)
+        public UsuariosController(partyholicContext context)
         {
             _context = context;
         }
@@ -87,7 +87,7 @@ namespace partyholic_api.Controllers
         {
           if (_context.Usuarios == null)
           {
-              return Problem("Entity set 'PartyholicContext.Usuarios'  is null.");
+              return Problem("Entity set 'partyholicContext.Usuarios'  is null.");
           }
             _context.Usuarios.Add(usuario);
             try

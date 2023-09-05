@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sergi\\source\\repos\\partyholic-api\\partyholic-api.csproj": {}
+    "C:\\Users\\sergi\\Documents\\GitHub\\partyholic-api\\partyholic-api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sergi\\source\\repos\\partyholic-api\\partyholic-api.csproj": {
+    "C:\\Users\\sergi\\Documents\\GitHub\\partyholic-api\\partyholic-api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sergi\\source\\repos\\partyholic-api\\partyholic-api.csproj",
+        "projectUniqueName": "C:\\Users\\sergi\\Documents\\GitHub\\partyholic-api\\partyholic-api.csproj",
         "projectName": "partyholic-api",
-        "projectPath": "C:\\Users\\sergi\\source\\repos\\partyholic-api\\partyholic-api.csproj",
+        "projectPath": "C:\\Users\\sergi\\Documents\\GitHub\\partyholic-api\\partyholic-api.csproj",
         "packagesPath": "C:\\Users\\sergi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sergi\\source\\repos\\partyholic-api\\obj\\",
+        "outputPath": "C:\\Users\\sergi\\Documents\\GitHub\\partyholic-api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sergi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,10 +40,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Microsoft.AspNetCore.Authentication.JwtBearer": {
-              "target": "Package",
-              "version": "[6.0.7, )"
-            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[6.0.21, )"
@@ -56,7 +52,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.10, )"
+              "version": "[6.0.21, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
@@ -64,7 +60,7 @@
             },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[6.0.2, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

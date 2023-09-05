@@ -13,9 +13,9 @@ namespace partyholic_api.Controllers
     [ApiController]
     public class UsuariosEventoesController : ControllerBase
     {
-        private readonly PartyholicContext _context;
+        private readonly partyholicContext _context;
 
-        public UsuariosEventoesController(PartyholicContext context)
+        public UsuariosEventoesController(partyholicContext context)
         {
             _context = context;
         }
@@ -87,7 +87,7 @@ namespace partyholic_api.Controllers
         {
           if (_context.UsuariosEventos == null)
           {
-              return Problem("Entity set 'PartyholicContext.UsuariosEventos'  is null.");
+              return Problem("Entity set 'partyholicContext.UsuariosEventos'  is null.");
           }
             _context.UsuariosEventos.Add(usuariosEvento);
             await _context.SaveChangesAsync();

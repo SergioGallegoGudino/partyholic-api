@@ -13,9 +13,9 @@ namespace partyholic_api.Controllers
     [ApiController]
     public class MensajesController : ControllerBase
     {
-        private readonly PartyholicContext _context;
+        private readonly partyholicContext _context;
 
-        public MensajesController(PartyholicContext context)
+        public MensajesController(partyholicContext context)
         {
             _context = context;
         }
@@ -87,7 +87,7 @@ namespace partyholic_api.Controllers
         {
           if (_context.Mensajes == null)
           {
-              return Problem("Entity set 'PartyholicContext.Mensajes'  is null.");
+              return Problem("Entity set 'partyholicContext.Mensajes'  is null.");
           }
             _context.Mensajes.Add(mensaje);
             await _context.SaveChangesAsync();

@@ -13,9 +13,9 @@ namespace partyholic_api.Controllers
     [ApiController]
     public class RetarsController : ControllerBase
     {
-        private readonly PartyholicContext _context;
+        private readonly partyholicContext _context;
 
-        public RetarsController(PartyholicContext context)
+        public RetarsController(partyholicContext context)
         {
             _context = context;
         }
@@ -87,7 +87,7 @@ namespace partyholic_api.Controllers
         {
           if (_context.Retars == null)
           {
-              return Problem("Entity set 'PartyholicContext.Retars'  is null.");
+              return Problem("Entity set 'partyholicContext.Retars'  is null.");
           }
             _context.Retars.Add(retar);
             await _context.SaveChangesAsync();

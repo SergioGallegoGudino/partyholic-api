@@ -13,9 +13,9 @@ namespace partyholic_api.Controllers
     [ApiController]
     public class EventoesController : ControllerBase
     {
-        private readonly PartyholicContext _context;
+        private readonly partyholicContext _context;
 
-        public EventoesController(PartyholicContext context)
+        public EventoesController(partyholicContext context)
         {
             _context = context;
         }
@@ -87,7 +87,7 @@ namespace partyholic_api.Controllers
         {
           if (_context.Eventos == null)
           {
-              return Problem("Entity set 'PartyholicContext.Eventos'  is null.");
+              return Problem("Entity set 'partyholicContext.Eventos'  is null.");
           }
             _context.Eventos.Add(evento);
             try
