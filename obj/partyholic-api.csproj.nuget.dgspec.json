@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sergi\\source\\repos\\partyholic-api\\partyholic-api.csproj": {}
+    "E:\\JuanD\\BootcampFEGC\\C6 - Proyecto Final\\partyholic-api\\partyholic-api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sergi\\source\\repos\\partyholic-api\\partyholic-api.csproj": {
+    "E:\\JuanD\\BootcampFEGC\\C6 - Proyecto Final\\partyholic-api\\partyholic-api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sergi\\source\\repos\\partyholic-api\\partyholic-api.csproj",
+        "projectUniqueName": "E:\\JuanD\\BootcampFEGC\\C6 - Proyecto Final\\partyholic-api\\partyholic-api.csproj",
         "projectName": "partyholic-api",
-        "projectPath": "C:\\Users\\sergi\\source\\repos\\partyholic-api\\partyholic-api.csproj",
-        "packagesPath": "C:\\Users\\sergi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sergi\\source\\repos\\partyholic-api\\obj\\",
+        "projectPath": "E:\\JuanD\\BootcampFEGC\\C6 - Proyecto Final\\partyholic-api\\partyholic-api.csproj",
+        "packagesPath": "C:\\Users\\Casa\\.nuget\\packages\\",
+        "outputPath": "E:\\JuanD\\BootcampFEGC\\C6 - Proyecto Final\\partyholic-api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\sergi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Casa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,9 +40,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+            "Microsoft.AspNet.WebApi.Core": {
               "target": "Package",
-              "version": "[6.0.7, )"
+              "version": "[5.2.9, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",

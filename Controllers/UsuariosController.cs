@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using partyholic_api.Models;
+using partyholic_api.Dto;
+using System.Web.Http.Description;
 
 namespace partyholic_api.Controllers
 {
@@ -24,21 +26,63 @@ namespace partyholic_api.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuarios()
         {
-          if (_context.Usuarios == null)
-          {
-              return NotFound();
-          }
+            if (_context.Usuarios == null)
+            {
+                return NotFound();
+            }
             return await _context.Usuarios.ToListAsync();
+        }
+
+        // DTO  GET: api/Usuarios/auth/signin/username
+        //@sgallego
+        [Route("auth/signin/{username}")]
+        [HttpGet]
+        public List<UsuarioAuthDto> signin(string username)
+        {
+            List<UsuarioAuthDto> LstUsuAuth = new List<UsuarioAuthDto>();
+            foreach (Usuario prd in _context.Usuarios.ToList())
+            {
+                if (username == prd.Username)
+                {
+                    UsuarioAuthDto objdto = new UsuarioAuthDto();
+                    objdto.Username = prd.Username;
+                    objdto.Email = prd.Email;
+                    objdto.RolApp = prd.RolApp;
+                    objdto.Passwd = prd.Passwd;
+                    LstUsuAuth.Add(objdto);
+                }
+            }
+            return LstUsuAuth;
+        }
+        // DTO POST
+        [Route("auth/signup")]
+        [HttpPost]
+        public string signup(Usuario usuario)
+        {
+            try
+            {
+                Usuario user = new Usuario();
+                user.Username = usuario.Username;
+                user.Email=usuario.Email;
+                user.Passwd= usuario.Passwd;
+                _context.Usuarios.Add(user);
+                _context.SaveChanges();
+                return "Success";
+            }
+            catch (Exception ex)
+            {
+                return ex.ToString();
+            }
         }
 
         // GET: api/Usuarios/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Usuario>> GetUsuario(string id)
         {
-          if (_context.Usuarios == null)
-          {
-              return NotFound();
-          }
+            if (_context.Usuarios == null)
+            {
+                return NotFound();
+            }
             var usuario = await _context.Usuarios.FindAsync(id);
 
             if (usuario == null)
@@ -85,10 +129,10 @@ namespace partyholic_api.Controllers
         [HttpPost]
         public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
         {
-          if (_context.Usuarios == null)
-          {
-              return Problem("Entity set 'PartyholicContext.Usuarios'  is null.");
-          }
+            if (_context.Usuarios == null)
+            {
+                return Problem("Entity set 'PartyholicContext.Usuarios'  is null.");
+            }
             _context.Usuarios.Add(usuario);
             try
             {
