@@ -11,11 +11,11 @@ namespace partyholic_api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RetarsController : ControllerBase
+    public class RetarController : ControllerBase
     {
         private readonly partyholicContext _context;
 
-        public RetarsController(partyholicContext context)
+        public RetarController(partyholicContext context)
         {
             _context = context;
         }

@@ -11,11 +11,11 @@ namespace partyholic_api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsuariosGrupoesController : ControllerBase
+    public class UsuariosGruposController : ControllerBase
     {
         private readonly partyholicContext _context;
 
-        public UsuariosGrupoesController(partyholicContext context)
+        public UsuariosGruposController(partyholicContext context)
         {
             _context = context;
         }

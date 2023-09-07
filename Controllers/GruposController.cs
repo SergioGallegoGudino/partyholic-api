@@ -11,55 +11,57 @@ namespace partyholic_api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LogroesController : ControllerBase
+    public class GruposController : ControllerBase
     {
         private readonly partyholicContext _context;
 
-        public LogroesController(partyholicContext context)
+        public GruposController(partyholicContext context)
         {
             _context = context;
         }
 
-        // GET: api/Logroes
+
+
+        // GET: api/Grupoes
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Logro>>> GetLogros()
+        public async Task<ActionResult<IEnumerable<Grupo>>> GetGrupos()
         {
-          if (_context.Logros == null)
+          if (_context.Grupos == null)
           {
               return NotFound();
           }
-            return await _context.Logros.ToListAsync();
+            return await _context.Grupos.ToListAsync();
         }
 
-        // GET: api/Logroes/5
+        // GET: api/Grupoes/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Logro>> GetLogro(int id)
+        public async Task<ActionResult<Grupo>> GetGrupo(int id)
         {
-          if (_context.Logros == null)
+          if (_context.Grupos == null)
           {
               return NotFound();
           }
-            var logro = await _context.Logros.FindAsync(id);
+            var grupo = await _context.Grupos.FindAsync(id);
 
-            if (logro == null)
+            if (grupo == null)
             {
                 return NotFound();
             }
 
-            return logro;
+            return grupo;
         }
 
-        // PUT: api/Logroes/5
+        // PUT: api/Grupoes/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutLogro(int id, Logro logro)
+        public async Task<IActionResult> PutGrupo(int id, Grupo grupo)
         {
-            if (id != logro.CodLogro)
+            if (id != grupo.CodGrupo)
             {
                 return BadRequest();
             }
 
-            _context.Entry(logro).State = EntityState.Modified;
+            _context.Entry(grupo).State = EntityState.Modified;
 
             try
             {
@@ -67,7 +69,7 @@ namespace partyholic_api.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!LogroExists(id))
+                if (!GrupoExists(id))
                 {
                     return NotFound();
                 }
@@ -80,44 +82,44 @@ namespace partyholic_api.Controllers
             return NoContent();
         }
 
-        // POST: api/Logroes
+        // POST: api/Grupoes
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Logro>> PostLogro(Logro logro)
+        public async Task<ActionResult<Grupo>> PostGrupo(Grupo grupo)
         {
-          if (_context.Logros == null)
+          if (_context.Grupos == null)
           {
-              return Problem("Entity set 'PartyholicContext.Logros'  is null.");
+              return Problem("Entity set 'PartyholicContext.Grupos'  is null.");
           }
-            _context.Logros.Add(logro);
+            _context.Grupos.Add(grupo);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetLogro", new { id = logro.CodLogro }, logro);
+            return CreatedAtAction("GetGrupo", new { id = grupo.CodGrupo }, grupo);
         }
 
-        // DELETE: api/Logroes/5
+        // DELETE: api/Grupoes/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteLogro(int id)
+        public async Task<IActionResult> DeleteGrupo(int id)
         {
-            if (_context.Logros == null)
+            if (_context.Grupos == null)
             {
                 return NotFound();
             }
-            var logro = await _context.Logros.FindAsync(id);
-            if (logro == null)
+            var grupo = await _context.Grupos.FindAsync(id);
+            if (grupo == null)
             {
                 return NotFound();
             }
 
-            _context.Logros.Remove(logro);
+            _context.Grupos.Remove(grupo);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool LogroExists(int id)
+        private bool GrupoExists(int id)
         {
-            return (_context.Logros?.Any(e => e.CodLogro == id)).GetValueOrDefault();
+            return (_context.Grupos?.Any(e => e.CodGrupo == id)).GetValueOrDefault();
         }
     }
 }
