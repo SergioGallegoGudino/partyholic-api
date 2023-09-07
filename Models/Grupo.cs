@@ -22,6 +22,8 @@ namespace partyholic_api.Models
         public string? Descripcion { get; set; }
         public string? FotoGrupo { get; set; }
 
+        public int? Participantes { get; set; }
+
         public virtual ICollection<Evento> Eventos { get; set; }
         public virtual ICollection<GruposLogro> GruposLogros { get; set; }
         public virtual ICollection<Mensaje> Mensajes { get; set; }

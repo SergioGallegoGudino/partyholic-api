@@ -90,6 +90,9 @@ namespace partyholic_api.Models
                 entity.Property(e => e.Privacidad)
                     .HasMaxLength(100)
                     .HasColumnName("privacidad");
+
+                entity.Property(e => e.Participantes)
+                    .HasColumnName("participantes");
             });
 
             modelBuilder.Entity<GruposLogro>(entity =>

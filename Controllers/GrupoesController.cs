@@ -20,6 +20,8 @@ namespace partyholic_api.Controllers
             _context = context;
         }
 
+
+
         // GET: api/Grupoes
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Grupo>>> GetGrupos()
