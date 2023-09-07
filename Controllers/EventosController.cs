@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 using partyholic_api.Models;
 
 namespace partyholic_api.Controllers
@@ -82,7 +83,7 @@ namespace partyholic_api.Controllers
 
         // POST: api/Eventoes
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
+        /*[HttpPost]
         public async Task<ActionResult<Evento>> PostEvento(Evento evento)
         {
           if (_context.Eventos == null)
@@ -107,6 +108,28 @@ namespace partyholic_api.Controllers
             }
 
             return CreatedAtAction("GetEvento", new { id = evento.CodEvento }, evento);
+        }*/
+
+        //POST api/Eventos
+        [HttpPost]
+        public IActionResult PostEvento(Evento evento)
+        {
+            try
+            {
+                Evento ev = new Evento();
+                ev.CodEvento = evento.CodEvento;
+                ev.CodGrupo = evento.CodGrupo;
+                ev.Titulo = evento.Titulo;
+                ev.FechaEvento = evento.FechaEvento;
+
+                _context.Eventos.Add(ev);
+                _context.SaveChanges();
+                return Ok(new { message = "Success" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
         }
 
         // DELETE: api/Eventoes/5

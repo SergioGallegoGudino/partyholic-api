@@ -20,7 +20,27 @@ namespace partyholic_api.Controllers
             _context = context;
         }
 
-
+        [Route("crear")]
+        [HttpPost]
+        public IActionResult signup(Grupo g)
+        {
+            try
+            {
+                Grupo grupo = new Grupo();
+                grupo.CodGrupo = g.CodGrupo;
+                grupo.Nombre = g.Nombre;
+                grupo.Privacidad = g.Privacidad;
+                grupo.Participantes = g.Participantes;
+                grupo.Descripcion = g.Descripcion;
+                _context.Grupos.Add(grupo);
+                _context.SaveChanges();
+                return Ok(new { message = "Success" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
 
         // GET: api/Grupoes
         [HttpGet]
