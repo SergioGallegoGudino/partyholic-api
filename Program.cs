@@ -1,15 +1,18 @@
 using Microsoft.EntityFrameworkCore;
 using partyholic_api.Models;
+using Microsoft.Extensions.Configuration;
+using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
 
 // Replace with your connection string.
 var connectionString = "server=127.0.0.1;user=root;password=root;database=partyholic";
@@ -43,8 +46,6 @@ app.UseCors(x => x
             .AllowAnyOrigin()
             .AllowAnyMethod()
             .AllowAnyHeader());
-
-app.UseHttpsRedirection();
 
 app.UseHttpsRedirection();
 

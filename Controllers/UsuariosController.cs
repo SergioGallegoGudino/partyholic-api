@@ -11,6 +11,7 @@ using System.Web.Http.Description;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+using System.Text;
 
 namespace partyholic_api.Controllers
 {
@@ -32,7 +33,9 @@ namespace partyholic_api.Controllers
                 new Claim(ClaimTypes.Name, usuario.Username)
             };
 
-            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings: Token").Value));
+            var tokenKey = _configuration.GetSection("AppSettings:TokenKey").Value;
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenKey));
+
 
             var cred = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
@@ -47,9 +50,10 @@ namespace partyholic_api.Controllers
             return jwt;
         }
 
-        public UsuariosController(partyholicContext context)
+        public UsuariosController(partyholicContext context, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
         }
 
         // GET: api/Usuarios
@@ -76,9 +80,9 @@ namespace partyholic_api.Controllers
                 {
                     if (usuario.Username == prd.Username && usuario.Passwd == prd.Passwd)
                     {
-                        //string token = CreateToken(usuario);
+                        string token = CreateToken(usuario);
 
-                        return Ok(new {accessToken = "prueba", infoUser = usuario});
+                        return Ok(new {accessToken = token, infoUser = prd});
 
                     }
                 }
@@ -100,6 +104,9 @@ namespace partyholic_api.Controllers
                 user.Username = usuario.Username;
                 user.Email=usuario.Email;
                 user.Passwd= usuario.Passwd;
+                user.RolApp = "user";
+                user.Nombre = usuario.Username;
+                user.Privacidad = "public";
                 _context.Usuarios.Add(user);
                 _context.SaveChanges();
                 return Ok(new { message = "Success" });
