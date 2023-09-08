@@ -31,6 +31,21 @@ namespace partyholic_api.Controllers
             return await _context.Mensajes.ToListAsync();
         }
 
+        // GET: api/Mensajes/{cod_grupo}
+        [HttpGet("CodGrupo/{cod_grupo}")]
+        public async Task<ActionResult<IEnumerable<Mensaje>>> GetMensajesGrupo(int cod_grupo)
+        {
+
+            var msjGrupo = _context.Mensajes.Where(a => a.CodGrupo == cod_grupo);
+
+            if (msjGrupo.Count() == 0)
+            {
+                return NotFound();
+            }
+
+            return await msjGrupo.ToListAsync();
+        }
+
         // GET: api/Mensajes/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Mensaje>> GetMensaje(int id)

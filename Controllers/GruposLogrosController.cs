@@ -49,6 +49,21 @@ namespace partyholic_api.Controllers
             return gruposLogro;
         }
 
+        // GET: api/GruposLogroes/{cod_grupo}
+        [HttpGet("CodGrupo/{cod_grupo}")]
+        public async Task<ActionResult<IEnumerable<GruposLogro>>> GetGrpLogro(int cod_grupo)
+        {
+
+            var logrosGrp = _context.GruposLogros.Where(a => a.CodGrupo == cod_grupo);
+
+            if (logrosGrp.Count() == 0)
+            {
+                return NotFound();
+            }
+
+            return await logrosGrp.ToListAsync();
+        }
+
         // PUT: api/GruposLogroes/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
