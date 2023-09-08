@@ -6,18 +6,22 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+<<<<<<< HEAD:Controllers/EventoesController.cs
 using NuGet.Packaging.Signing;
+=======
+using Microsoft.Extensions.Hosting;
+>>>>>>> cbe874b8a6aecbdfbbd26a38fd4f1f275fcbf30f:Controllers/EventosController.cs
 using partyholic_api.Models;
 
 namespace partyholic_api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EventoesController : ControllerBase
+    public class EventosController : ControllerBase
     {
         private readonly partyholicContext _context;
 
-        public EventoesController(partyholicContext context)
+        public EventosController(partyholicContext context)
         {
             _context = context;
         }
@@ -123,6 +127,7 @@ namespace partyholic_api.Controllers
 
         // POST: api/Eventoes
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+<<<<<<< HEAD:Controllers/EventoesController.cs
         //[HttpPost]
         //public async Task<ActionResult<Evento>> PostEvento(Evento evento)
         //{
@@ -149,6 +154,56 @@ namespace partyholic_api.Controllers
 
         //    return CreatedAtAction("GetEvento", new { id = evento.CodEvento }, evento);
         //}
+=======
+        /*[HttpPost]
+        public async Task<ActionResult<Evento>> PostEvento(Evento evento)
+        {
+          if (_context.Eventos == null)
+          {
+              return Problem("Entity set 'PartyholicContext.Eventos'  is null.");
+          }
+            _context.Eventos.Add(evento);
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException)
+            {
+                if (EventoExists(evento.CodEvento))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return CreatedAtAction("GetEvento", new { id = evento.CodEvento }, evento);
+        }*/
+
+        //POST api/Eventos
+        [HttpPost]
+        public IActionResult PostEvento(Evento evento)
+        {
+            try
+            {
+                Evento ev = new Evento();
+                ev.CodEvento = evento.CodEvento;
+                ev.CodGrupo = evento.CodGrupo;
+                ev.Titulo = evento.Titulo;
+                ev.FechaEvento = evento.FechaEvento;
+
+                _context.Eventos.Add(ev);
+                _context.SaveChanges();
+                return Ok(new { message = "Success" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+>>>>>>> cbe874b8a6aecbdfbbd26a38fd4f1f275fcbf30f:Controllers/EventosController.cs
 
         // DELETE: api/Eventoes/5
         [HttpDelete("{id}")]

@@ -11,55 +11,55 @@ namespace partyholic_api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LogroesController : ControllerBase
+    public class RetarController : ControllerBase
     {
         private readonly partyholicContext _context;
 
-        public LogroesController(partyholicContext context)
+        public RetarController(partyholicContext context)
         {
             _context = context;
         }
 
-        // GET: api/Logroes
+        // GET: api/Retars
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Logro>>> GetLogros()
+        public async Task<ActionResult<IEnumerable<Retar>>> GetRetars()
         {
-          if (_context.Logros == null)
+          if (_context.Retars == null)
           {
               return NotFound();
           }
-            return await _context.Logros.ToListAsync();
+            return await _context.Retars.ToListAsync();
         }
 
-        // GET: api/Logroes/5
+        // GET: api/Retars/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Logro>> GetLogro(int id)
+        public async Task<ActionResult<Retar>> GetRetar(int id)
         {
-          if (_context.Logros == null)
+          if (_context.Retars == null)
           {
               return NotFound();
           }
-            var logro = await _context.Logros.FindAsync(id);
+            var retar = await _context.Retars.FindAsync(id);
 
-            if (logro == null)
+            if (retar == null)
             {
                 return NotFound();
             }
 
-            return logro;
+            return retar;
         }
 
-        // PUT: api/Logroes/5
+        // PUT: api/Retars/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutLogro(int id, Logro logro)
+        public async Task<IActionResult> PutRetar(int id, Retar retar)
         {
-            if (id != logro.CodLogro)
+            if (id != retar.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(logro).State = EntityState.Modified;
+            _context.Entry(retar).State = EntityState.Modified;
 
             try
             {
@@ -67,7 +67,7 @@ namespace partyholic_api.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!LogroExists(id))
+                if (!RetarExists(id))
                 {
                     return NotFound();
                 }
@@ -80,44 +80,44 @@ namespace partyholic_api.Controllers
             return NoContent();
         }
 
-        // POST: api/Logroes
+        // POST: api/Retars
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Logro>> PostLogro(Logro logro)
+        public async Task<ActionResult<Retar>> PostRetar(Retar retar)
         {
-          if (_context.Logros == null)
+          if (_context.Retars == null)
           {
-              return Problem("Entity set 'PartyholicContext.Logros'  is null.");
+              return Problem("Entity set 'PartyholicContext.Retars'  is null.");
           }
-            _context.Logros.Add(logro);
+            _context.Retars.Add(retar);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetLogro", new { id = logro.CodLogro }, logro);
+            return CreatedAtAction("GetRetar", new { id = retar.Id }, retar);
         }
 
-        // DELETE: api/Logroes/5
+        // DELETE: api/Retars/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteLogro(int id)
+        public async Task<IActionResult> DeleteRetar(int id)
         {
-            if (_context.Logros == null)
+            if (_context.Retars == null)
             {
                 return NotFound();
             }
-            var logro = await _context.Logros.FindAsync(id);
-            if (logro == null)
+            var retar = await _context.Retars.FindAsync(id);
+            if (retar == null)
             {
                 return NotFound();
             }
 
-            _context.Logros.Remove(logro);
+            _context.Retars.Remove(retar);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool LogroExists(int id)
+        private bool RetarExists(int id)
         {
-            return (_context.Logros?.Any(e => e.CodLogro == id)).GetValueOrDefault();
+            return (_context.Retars?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
