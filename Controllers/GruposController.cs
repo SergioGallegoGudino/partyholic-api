@@ -32,6 +32,8 @@ namespace partyholic_api.Controllers
                 grupo.Privacidad = g.Privacidad;
                 grupo.Participantes = g.Participantes;
                 grupo.Descripcion = g.Descripcion;
+                grupo.Juego = g.Juego;
+                grupo.FotoGrupo = g.FotoGrupo;
                 _context.Grupos.Add(grupo);
                 _context.SaveChanges();
                 return Ok(new { message = "Success" });
