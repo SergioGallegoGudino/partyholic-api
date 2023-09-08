@@ -48,6 +48,21 @@ namespace partyholic_api.Controllers
 
             return usuariosGrupo;
         }
+        // GET: api/UsuariosGrupoes/{cod_grupo}
+        [HttpGet("CodGrupo/{cod_grupo}")]
+        public async Task<ActionResult<IEnumerable<UsuariosGrupo>>> GetUsuariosGrupoGrupo(int cod_grupo)
+        {
+
+            var eventoGrupos = _context.UsuariosGrupos.Where(a => a.CodGrupo == cod_grupo);
+
+            if (eventoGrupos.Count() == 0)
+            {
+                return NotFound();
+            }
+
+            return await eventoGrupos.ToListAsync();
+        }
+        //-----------------------
 
         // PUT: api/UsuariosGrupoes/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
