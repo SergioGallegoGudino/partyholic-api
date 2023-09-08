@@ -60,8 +60,8 @@ namespace partyholic_api.Models
 
                 entity.HasOne(d => d.CodGrupoNavigation)
                     .WithMany(p => p.Eventos)
-                    .HasForeignKey(d => d.CodGrupo)
-                    .HasConstraintName("Eventos_ibfk_1");
+                    .HasForeignKey(d => d.CodEvento)
+                    .HasConstraintName("Eventos_ibfk");
             });
 
             modelBuilder.Entity<Grupo>(entity =>
