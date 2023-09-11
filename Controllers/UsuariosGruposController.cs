@@ -31,23 +31,25 @@ namespace partyholic_api.Controllers
             return await _context.UsuariosGrupos.ToListAsync();
         }
 
-        // GET: api/UsuariosGrupoes/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<UsuariosGrupo>> GetUsuariosGrupo(int id)
+        // GET: api/UsuariosGrupoes/getGruposUsuario/username
+        [HttpGet("getGruposUsuario/{username}")]
+        public async Task<ActionResult<IEnumerable<Grupo>>> GetGruposUsuario(string username)
         {
-          if (_context.UsuariosGrupos == null)
-          {
-              return NotFound();
-          }
-            var usuariosGrupo = await _context.UsuariosGrupos.FindAsync(id);
+            var gruposUsuario = await _context.UsuariosGrupos
+                .Include(ug => ug.CodGrupoNavigation)
+                .Where(ug => ug.Username == username)
+                .Select(ug => ug.CodGrupoNavigation)
+                .ToListAsync();
 
-            if (usuariosGrupo == null)
+            if (gruposUsuario == null || !gruposUsuario.Any())
             {
-                return NotFound();
+                return Ok();
             }
 
-            return usuariosGrupo;
+            return Ok(gruposUsuario);
         }
+
+
         // GET: api/UsuariosGrupoes/{cod_grupo}
         [HttpGet("CodGrupo/{cod_grupo}")]
         public async Task<ActionResult<IEnumerable<UsuariosGrupo>>> GetUsuariosGrupoGrupo(int cod_grupo)

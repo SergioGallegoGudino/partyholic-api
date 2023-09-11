@@ -11808,19 +11808,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Casa\\.nuget\\packages\\": {}
+    "C:\\Users\\sergi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\JuanD\\BootcampFEGC\\C6 - Proyecto Final\\partyholic-api\\partyholic-api.csproj",
+      "projectUniqueName": "C:\\Users\\sergi\\Documents\\GitHub\\partyholic-api\\partyholic-api.csproj",
       "projectName": "partyholic-api",
-      "projectPath": "E:\\JuanD\\BootcampFEGC\\C6 - Proyecto Final\\partyholic-api\\partyholic-api.csproj",
-      "packagesPath": "C:\\Users\\Casa\\.nuget\\packages\\",
-      "outputPath": "E:\\JuanD\\BootcampFEGC\\C6 - Proyecto Final\\partyholic-api\\obj\\",
+      "projectPath": "C:\\Users\\sergi\\Documents\\GitHub\\partyholic-api\\partyholic-api.csproj",
+      "packagesPath": "C:\\Users\\sergi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sergi\\Documents\\GitHub\\partyholic-api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Casa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sergi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
