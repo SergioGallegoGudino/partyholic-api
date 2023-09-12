@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "a+bBFeqlxD1waFXI6FEr+0VsQhh2MO+jPJ5gJuMb7Z5WrtwoQMAqainr1QT6imRbw8vhgrUeRiTjQpd5ZDn/nA==",
+  "dgSpecHash": "DWPFMOAb43FV1PtUo3gl6h6AF0GDXbLsF9VvdrXJrL8OTtHoVNYAiDuC3IhLaayGrpFZ9LK6mxsGvHfPRv0MCQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\sergi\\Documents\\GitHub\\partyholic-api\\partyholic-api.csproj",
   "expectedPackageFiles": [
@@ -56,7 +56,7 @@
     "C:\\Users\\sergi\\.nuget\\packages\\humanizer.core.zh-hant\\2.14.1\\humanizer.core.zh-hant.2.14.1.nupkg.sha512",
     "C:\\Users\\sergi\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\sergi\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
-    "C:\\Users\\sergi\\.nuget\\packages\\messagepackanalyzer\\2.1.152\\messagepackanalyzer.2.1.152.nupkg.sha512",
+    "C:\\Users\\sergi\\.nuget\\packages\\messagepackanalyzer\\2.5.124\\messagepackanalyzer.2.5.124.nupkg.sha512",
     "C:\\Users\\sergi\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.9\\microsoft.aspnet.webapi.client.5.2.9.nupkg.sha512",
     "C:\\Users\\sergi\\.nuget\\packages\\microsoft.aspnet.webapi.core\\5.2.9\\microsoft.aspnet.webapi.core.5.2.9.nupkg.sha512",
     "C:\\Users\\sergi\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\6.0.0\\microsoft.aspnetcore.razor.language.6.0.0.nupkg.sha512",
