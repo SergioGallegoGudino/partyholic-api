@@ -631,7 +631,7 @@
           }
         }
       },
-      "MessagePackAnalyzer/2.1.152": {
+      "MessagePackAnalyzer/2.5.124": {
         "type": "package"
       },
       "Microsoft.AspNet.WebApi.Client/5.2.9": {
@@ -4911,17 +4911,16 @@
         "messagepack.annotations.nuspec"
       ]
     },
-    "MessagePackAnalyzer/2.1.152": {
-      "sha512": "uJhZlGMkXDaFYsH8V9S6o1EyvsUqB9mpU4DVBXNr0DXZVzZMhuLP1IkLj5xK3EKlaAcvkFkZv3eSvuz360wb3Q==",
+    "MessagePackAnalyzer/2.5.124": {
+      "sha512": "Dxow+fVuBjfpHvMjALZY1cdkbBODRlbUv2je7oLA2Lkzz+lf0+/xPio/9EyAq3J1MMxBa6wBCIHg7tEPamDSMA==",
       "type": "package",
-      "path": "messagepackanalyzer/2.1.152",
+      "path": "messagepackanalyzer/2.5.124",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE",
         "analyzers/dotnet/MessagePackAnalyzer.dll",
-        "messagepackanalyzer.2.1.152.nupkg.sha512",
+        "messagepackanalyzer.2.5.124.nupkg.sha512",
         "messagepackanalyzer.nuspec",
         "tools/install.ps1",
         "tools/uninstall.ps1"
@@ -11798,6 +11797,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "MessagePackAnalyzer >= 2.5.124",
       "Microsoft.AspNet.WebApi.Core >= 5.2.9",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.21",
       "Microsoft.EntityFrameworkCore.Sqlite >= 6.0.21",
@@ -11808,19 +11808,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Casa\\.nuget\\packages\\": {}
+    "C:\\Users\\sergi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\JuanD\\BootcampFEGC\\C6 - Proyecto Final\\partyholic-api\\partyholic-api.csproj",
+      "projectUniqueName": "C:\\Users\\sergi\\Documents\\GitHub\\partyholic-api\\partyholic-api.csproj",
       "projectName": "partyholic-api",
-      "projectPath": "E:\\JuanD\\BootcampFEGC\\C6 - Proyecto Final\\partyholic-api\\partyholic-api.csproj",
-      "packagesPath": "C:\\Users\\Casa\\.nuget\\packages\\",
-      "outputPath": "E:\\JuanD\\BootcampFEGC\\C6 - Proyecto Final\\partyholic-api\\obj\\",
+      "projectPath": "C:\\Users\\sergi\\Documents\\GitHub\\partyholic-api\\partyholic-api.csproj",
+      "packagesPath": "C:\\Users\\sergi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sergi\\Documents\\GitHub\\partyholic-api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Casa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sergi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11846,6 +11846,12 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "MessagePackAnalyzer": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[2.5.124, )"
+          },
           "Microsoft.AspNet.WebApi.Core": {
             "target": "Package",
             "version": "[5.2.9, )"

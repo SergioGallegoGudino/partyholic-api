@@ -34,6 +34,9 @@ builder.Services.AddDbContext<partyholicContext>(
         .EnableDetailedErrors()
 );
 
+var port = Environment.GetEnvironmentVariable("PORT") ?? "3000";
+builder.WebHost.UseUrls($"https://*:{port};");
+
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -44,6 +45,26 @@ namespace partyholic_api.Controllers
             }
 
             return await msjGrupo.ToListAsync();
+        }
+
+        [Route("crear")]
+        [HttpPost]
+        public IActionResult signup(Mensaje m)
+        {
+            try
+            {
+                Mensaje mensaje = new Mensaje();
+                mensaje.CodGrupo = m.CodGrupo;
+                mensaje.Username = m.Username;
+                mensaje.Contenido = m.Contenido;
+                _context.Mensajes.Add(mensaje);
+                _context.SaveChanges();
+                return Ok(new { message = "Success" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
         }
 
         // GET: api/Mensajes/5

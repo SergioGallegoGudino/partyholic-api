@@ -104,6 +104,31 @@ namespace partyholic_api.Controllers
             return NoContent();
         }
 
+
+        // GET: api/UsuariosGrupoes/getGruposLike/input
+
+        [HttpGet("getGruposLike/{input}")]
+        public async Task<ActionResult<IEnumerable<Grupo>>> GetGruposLike(string input)
+        {
+            try
+            {
+                var grupos = await _context.Grupos
+                    .Where(g => g.Nombre.Contains(input))
+                    .ToListAsync();
+
+                if (grupos == null || !grupos.Any())
+                {
+                    return await _context.Grupos.ToListAsync();
+                }
+
+                return Ok(grupos);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("Error al buscar grupos: " + ex.ToString());
+            }
+        }
+
         // POST: api/Grupoes
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
