@@ -8,14 +8,17 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
-
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+var port = Environment.GetEnvironmentVariable("PORT") ?? "3000";
+builder.WebHost.UseUrls($"http://*:{port};");
+
+var app = builder.Build();
+
 // Replace with your connection string.
-var connectionString = "server=127.0.0.1;user=root;password=root;database=partyholic";
+var connectionString = "mysql://root:YGi3MC9bN7U3JakoLQyn@containers-us-west-148.railway.app:7380/railway";
 
 // Replace with your server version and type.
 // Use 'MariaDbServerVersion' for MariaDB.
