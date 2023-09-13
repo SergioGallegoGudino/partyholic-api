@@ -16,14 +16,6 @@ builder.Services.AddSwaggerGen();
 var port = Environment.GetEnvironmentVariable("PORT") ?? "3000";
 builder.WebHost.UseUrls($"https://*:{port};");
 
-// Replace with your server version and type.
-// Use 'MariaDbServerVersion' for MariaDB.
-// Alternatively, use 'ServerVersion.AutoDetect(connectionString)'.
-// For common usages, see pull request #1233.
-var serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
-
-// Replace 'YourDbContext' with the name of your own DbContext derived class.
-
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -31,11 +23,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-app.UseCors(x => x
-            .AllowAnyOrigin()
-            .AllowAnyMethod()
-            .AllowAnyHeader());
 
 app.UseHttpsRedirection();
 
