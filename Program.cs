@@ -14,7 +14,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var port = Environment.GetEnvironmentVariable("PORT") ?? "3000";
-builder.WebHost.UseUrls($"https://*:{port};");
+builder.WebHost.UseUrls($"http://*:{port};");
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.
