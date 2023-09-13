@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sergi\\Documents\\GitHub\\partyholic-api\\partyholic-api.csproj": {}
+    "C:\\Users\\pc\\Source\\Repos\\partyholic-api\\partyholic-api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sergi\\Documents\\GitHub\\partyholic-api\\partyholic-api.csproj": {
+    "C:\\Users\\pc\\Source\\Repos\\partyholic-api\\partyholic-api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sergi\\Documents\\GitHub\\partyholic-api\\partyholic-api.csproj",
+        "projectUniqueName": "C:\\Users\\pc\\Source\\Repos\\partyholic-api\\partyholic-api.csproj",
         "projectName": "partyholic-api",
-        "projectPath": "C:\\Users\\sergi\\Documents\\GitHub\\partyholic-api\\partyholic-api.csproj",
-        "packagesPath": "C:\\Users\\sergi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sergi\\Documents\\GitHub\\partyholic-api\\obj\\",
+        "projectPath": "C:\\Users\\pc\\Source\\Repos\\partyholic-api\\partyholic-api.csproj",
+        "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pc\\Source\\Repos\\partyholic-api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\sergi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,12 +40,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "MessagePackAnalyzer": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.5.124, )"
-            },
             "Microsoft.AspNet.WebApi.Core": {
               "target": "Package",
               "version": "[5.2.9, )"
