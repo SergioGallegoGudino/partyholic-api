@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,15 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using partyholic_api.Models;
 using partyholic_api.Dto;
+using System.Web.Http.Description;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
-using System.Web.Http.Description;
 using System.Text;
-using System.Security.Cryptography;
-using static System.Net.Mime.MediaTypeNames;
-using System.Runtime.Intrinsics.Arm;
-
 
 namespace partyholic_api.Controllers
 {
@@ -77,21 +73,12 @@ namespace partyholic_api.Controllers
         [HttpPost]
         public IActionResult signin(Usuario usuario)
         {
-            string passHash;
-            // SHA512 is disposable by inheritance.  
-            using (var sha256 = SHA256.Create())
-            {
-                // Send a sample text to hash.  
-                var hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(usuario.Passwd));
-                // Get the hashed string.  
-                passHash = BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
-            }
             try
             {
                 List<UsuarioAuthDto> LstUsuAuth = new List<UsuarioAuthDto>();
                 foreach (Usuario prd in _context.Usuarios.ToList())
-                {                    
-                    if (usuario.Username == prd.Username && passHash == prd.Passwd)
+                {
+                    if (usuario.Username == prd.Username && usuario.Passwd == prd.Passwd)
                     {
                         string token = CreateToken(usuario);
 
@@ -111,23 +98,12 @@ namespace partyholic_api.Controllers
         [HttpPost]
         public IActionResult signup(Usuario usuario)
         {
-            string passHash;
-            // SHA512 is disposable by inheritance.  
-            using (var sha256 = SHA256.Create())
-            {
-                // Send a sample text to hash.  
-                var hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(usuario.Passwd));
-                // Get the hashed string.  
-
-                passHash= BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
-            }
             try
             {
-                
                 Usuario user = new Usuario();
                 user.Username = usuario.Username;
-                user.Email = usuario.Email;
-                user.Passwd = passHash;
+                user.Email=usuario.Email;
+                user.Passwd= usuario.Passwd;
                 user.RolApp = "user";
                 user.Nombre = usuario.Username;
                 user.Privacidad = "public";
