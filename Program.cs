@@ -9,6 +9,15 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+var connectionString = "mysql://root:YGi3MC9bN7U3JakoLQyn@containers-us-west-148.railway.app:7380/railway";
+
+// Replace with your server version and type.
+// Use 'MariaDbServerVersion' for MariaDB.
+// Alternatively, use 'ServerVersion.AutoDetect(connectionString)'.
+// For common usages, see pull request #1233.
+var serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
+
 builder.Services.AddDbContext<partyholicContext>(
     dbContextOptions => dbContextOptions
         .UseMySql(connectionString, serverVersion)
