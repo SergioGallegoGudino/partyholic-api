@@ -30,7 +30,8 @@ namespace partyholic_api.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                var connectionString = "mysql://root:YGi3MC9bN7U3JakoLQyn@containers-us-west-148.railway.app:7380/railway";
+                var connectionString = "server=containers-us-west-148.railway.app;user=root;password=YGi3MC9bN7U3JakoLQyn;database=railway";
+
         
                 optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
             }
