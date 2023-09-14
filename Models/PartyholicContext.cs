@@ -31,9 +31,6 @@ namespace partyholic_api.Models
             if (!optionsBuilder.IsConfigured)
             {
                 
-                // Analizar la cadena de conexión de Railway
-                var uri = new Uri(railwayConnectionString);
-                
                 // Obtener las partes necesarias
                 var server = "containers-us-west-148.railway.app";
                 var user = "root";
