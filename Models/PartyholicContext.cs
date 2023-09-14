@@ -40,7 +40,7 @@ namespace partyholic_api.Models
                 var password = "YGi3MC9bN7U3JakoLQyn";
                 var database = "railway";
                 
-                var connectionString = $"server={server};user={user};password={password};database={database};Connect Timeout=120";";
+                var connectionString = $"server={server};user={user};password={password};database={database}";";
                 
                 optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 
