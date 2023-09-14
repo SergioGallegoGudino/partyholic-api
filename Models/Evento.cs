@@ -10,6 +10,6 @@ namespace partyholic_api.Models
         public string? Titulo { get; set; }
         public DateOnly? FechaEvento { get; set; }
 
-        public virtual Grupo CodGrupoNavigation { get; set; } 
+        public virtual Grupo? CodGrupoNavigation { get; set; } 
     }
 }
