@@ -20,23 +20,6 @@ namespace partyholic_api.Controllers
             _context = context;
         }
 
-        // GET: api/Logros
-        [HttpGet("Logros")]
-        public async Task<ActionResult<IEnumerable<Logro>>> GetLogros()
-        {
-            var logros = await _context.Logros.ToListAsync();
-            return Ok(logros);
-        }
-
-        // GET: api/GruposLogros/Logros/5
-        [HttpGet("Logros/{codGrupo}")]
-        public async Task<ActionResult<IEnumerable<GruposLogro>>> GetLogrosPorGrupo(int codGrupo)
-        {
-            var logrosGrp = _context.GruposLogros.Where(a => a.CodGrupo == codGrupo);
-            return Ok(logrosGrp);
-        }
-
-
         // GET: api/GruposLogroes
         [HttpGet]
         public async Task<ActionResult<IEnumerable<GruposLogro>>> GetGruposLogros()

@@ -98,7 +98,6 @@ namespace partyholic_api.Controllers
             {
                 Evento ev = new Evento();
                 ev.CodEvento = 0;
-                //evento.CodGrupo = 3;
                 ev.CodGrupo = evento.CodGrupo;
                 ev.Titulo = evento.Titulo;
                 ev.FechaEvento = evento.FechaEvento;
@@ -109,8 +108,7 @@ namespace partyholic_api.Controllers
             }
             catch (Exception ex)
             {
-                string errors = "Hola";
-                return BadRequest(errors);
+                return BadRequest(ex.ToString());
             }
         }
 

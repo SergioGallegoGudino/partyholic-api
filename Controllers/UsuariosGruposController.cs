@@ -112,36 +112,6 @@ namespace partyholic_api.Controllers
             return CreatedAtAction("GetUsuariosGrupo", new { id = usuariosGrupo.Id }, usuariosGrupo);
         }
 
-        // GET: api/UsuariosGrupoes/getUsuarios/codgrupo
-
-        [HttpGet("getUsuarios/{codgrupo}")]
-        public async Task<ActionResult<IEnumerable<Usuario>>> GetGruposLike(string codGrupo)
-        {
-            try
-            {
-                var usuariosGrupo = await _context.UsuariosGrupos
-                    .Where(ug => ug.CodGrupo == int.Parse(codGrupo))
-                    .Select(ug => new
-                    {
-                        Usuario = ug.UsernameNavigation,
-                        EsAdmin = ug.EsAdmin
-                    })
-                    .ToListAsync();
-
-                if (usuariosGrupo == null || !usuariosGrupo.Any())
-                {
-                    return Ok();
-                }
-
-                return Ok(usuariosGrupo);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest("Error al buscar grupos: " + ex.ToString());
-            }
-        }
-
-
         // DELETE: api/UsuariosGrupoes/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUsuariosGrupo(int id)
