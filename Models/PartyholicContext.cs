@@ -30,7 +30,7 @@ namespace partyholic_api.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                var connectionString = "server=containers-us-west-148.railway.app;user=root;password=YGi3MC9bN7U3JakoLQyn;database=railway;default command timeout=360";
+                var connectionString = "server=containers-us-west-148.railway.app;user=root;password=YGi3MC9bN7U3JakoLQyn;database=railway";
 
         
                 optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
