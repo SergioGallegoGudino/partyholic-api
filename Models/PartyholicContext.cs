@@ -30,7 +30,7 @@ namespace partyholic_api.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseMySql("Server=containers-us-west-148.railway.app;User=root;Password=YGi3MC9bN7U3JakoLQyn;Database=partyholic", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.34-mysql"));
+                optionsBuilder.UseMySql("Server=containers-us-west-206.railway.app;User=root;Password=gD0ZXxpsiDGwrKSbLrC1;Database=partyholic", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.34-mysql"));
             }
         }
 
