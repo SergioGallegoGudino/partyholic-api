@@ -114,6 +114,7 @@ namespace partyholic_api.Controllers
                 // Crear una nueva instancia de UsuariosEvento y copiar los datos desde el objeto enviado en la solicitud
                 UsuariosEvento nuevoUsuariosEvento = new UsuariosEvento
                 {
+                    Id = 0,
                     Username = usuariosEvento.Username,
                     CodGrupo = usuariosEvento.CodGrupo,
                     CodEvento = usuariosEvento.CodEvento,
