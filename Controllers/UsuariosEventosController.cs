@@ -31,6 +31,29 @@ namespace partyholic_api.Controllers
             return await _context.UsuariosEventos.ToListAsync();
         }
 
+        [HttpGet("{codGrupo}/{username}")]
+        public async Task<ActionResult<UsuariosEvento>> GetUsuarioEvento(int codGrupo, string username)
+        {
+            try
+            {
+                var usuarioEventos = await _context.UsuariosEventos
+                       .Where(uv => uv.CodGrupo == codGrupo && uv.Username == username)
+                       .ToListAsync();
+
+                if (usuarioEventos == null || !usuarioEventos.Any())
+                {
+                    return Ok();
+                }
+
+                return Ok(usuarioEventos);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("Error al buscar eventos: " + ex.ToString());
+            }
+
+        }
+
         // GET: api/UsuariosEventoes/5
         [HttpGet("{id}")]
         public async Task<ActionResult<UsuariosEvento>> GetUsuariosEvento(int id)
