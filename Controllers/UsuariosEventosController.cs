@@ -105,18 +105,33 @@ namespace partyholic_api.Controllers
 
         // POST: api/UsuariosEventoes
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Route("crear")]
         [HttpPost]
-        public async Task<ActionResult<UsuariosEvento>> PostUsuariosEvento(UsuariosEvento usuariosEvento)
+        public IActionResult CrearUsuariosEvento(UsuariosEvento usuariosEvento)
         {
-          if (_context.UsuariosEventos == null)
-          {
-              return Problem("Entity set 'PartyholicContext.UsuariosEventos'  is null.");
-          }
-            _context.UsuariosEventos.Add(usuariosEvento);
-            await _context.SaveChangesAsync();
+            try
+            {
+                // Crear una nueva instancia de UsuariosEvento y copiar los datos desde el objeto enviado en la solicitud
+                UsuariosEvento nuevoUsuariosEvento = new UsuariosEvento
+                {
+                    Username = usuariosEvento.Username,
+                    CodGrupo = usuariosEvento.CodGrupo,
+                    CodEvento = usuariosEvento.CodEvento,
+                    Aceptar = usuariosEvento.Aceptar
+                };
 
-            return CreatedAtAction("GetUsuariosEvento", new { id = usuariosEvento.Id }, usuariosEvento);
+                // Agregar el nuevo objeto UsuariosEvento a la base de datos
+                _context.UsuariosEventos.Add(nuevoUsuariosEvento);
+                _context.SaveChanges();
+
+                return Ok(new { message = "Success" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
         }
+
 
         // DELETE: api/UsuariosEventoes/5
         [HttpDelete("{id}")]
