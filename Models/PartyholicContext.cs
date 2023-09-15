@@ -30,7 +30,7 @@ namespace partyholic_api.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                var connectionString = "mysql://root:YGi3MC9bN7U3JakoLQyn@containers-us-west-148.railway.app:7380/partyholic";
+                optionsBuilder.UseMySql("Server=containers-us-west-148.railway.app;User=root;Password=YGi3MC9bN7U3JakoLQyn;Database=partyholic", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.34-mysql"));
 
         
                 optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
