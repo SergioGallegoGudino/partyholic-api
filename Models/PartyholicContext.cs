@@ -30,7 +30,13 @@ namespace partyholic_api.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-optionsBuilder.UseMySql("Server=containers-us-west-206.railway.app;Port=6926;User=root;Password=gD0ZXxpsiDGwrKSbLrC1;Database=partyholic", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.34-mysql"));
+                optionsBuilder.UseMySql("Server=containers-us-west-206.railway.app;Port=6926;User=root;Password=gD0ZXxpsiDGwrKSbLrC1;Database=partyholic", 
+                                         options => 
+                                         {
+                                             options.CommandTimeout(60);
+                                             options.ConnectionTimeout(30);
+                                         },
+                                         Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.34-mysql"));
             }
         }
 
