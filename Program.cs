@@ -30,6 +30,16 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowOrigin",
+        builder => builder.WithOrigins("https://deploy.d2id8bw3ov9xdx.amplifyapp.com")
+        .AllowAnyMethod()
+        .AllowAnyHeader());
+});
+
+app.UseCors("AllowOrigin");
+
 app.UseCors(x => x
     .AllowAnyOrigin()
     .AllowAnyMethod()
