@@ -30,7 +30,7 @@ namespace partyholic_api.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseMySql("Server=containers-us-west-206.railway.app;Port=6926;User=root;Password=gD0ZXxpsiDGwrKSbLrC1;Database=partyholic", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.34-mysql"));
+optionsBuilder.UseMySql("Server=containers-us-west-206.railway.app;Port=6926;User=root;Password=gD0ZXxpsiDGwrKSbLrC1;Database=partyholic", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.34-mysql"));
             }
         }
 
@@ -59,7 +59,7 @@ namespace partyholic_api.Models
 
                 entity.HasOne(d => d.CodGrupoNavigation)
                     .WithMany(p => p.Eventos)
-                    .HasForeignKey(d => d.CodEvento)
+                    .HasForeignKey(d => d.CodGrupo)
                     .HasConstraintName("Eventos_ibfk");
             });
 
