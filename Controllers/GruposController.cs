@@ -76,9 +76,9 @@ namespace partyholic_api.Controllers
         // PUT: api/Grupoes/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutGrupo(int id, Grupo grupo)
+        public async Task<IActionResult> PutGrupo(string id, Grupo grupo)
         {
-            if (id != grupo.CodGrupo)
+            if (int.Parse(id) != grupo.CodGrupo)
             {
                 return BadRequest();
             }
@@ -91,7 +91,7 @@ namespace partyholic_api.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!GrupoExists(id))
+                if (!GrupoExists(int.Parse(id)))
                 {
                     return NotFound();
                 }
@@ -103,7 +103,6 @@ namespace partyholic_api.Controllers
 
             return NoContent();
         }
-
 
         // GET: api/UsuariosGrupoes/getGruposLike/input
 

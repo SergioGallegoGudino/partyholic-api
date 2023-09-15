@@ -30,7 +30,8 @@ namespace partyholic_api.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseMySql("Server=containers-us-west-206.railway.app;Port=6926;User=root;Password=gD0ZXxpsiDGwrKSbLrC1;Database=partyholic", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.34-mysql"));
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseMySql("server=127.0.0.1;database=partyholic;user id=root;password=root", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.34-mysql"));
             }
         }
 
@@ -59,7 +60,7 @@ namespace partyholic_api.Models
 
                 entity.HasOne(d => d.CodGrupoNavigation)
                     .WithMany(p => p.Eventos)
-                    .HasForeignKey(d => d.CodEvento)
+                    .HasForeignKey(d => d.CodGrupo)
                     .HasConstraintName("Eventos_ibfk");
             });
 
