@@ -97,8 +97,7 @@ namespace partyholic_api.Controllers
             try
             {
                 Evento ev = new Evento();
-                ev.CodEvento = evento.CodEvento;
-                //evento.CodGrupo = 3;
+                ev.CodEvento = 0;
                 ev.CodGrupo = evento.CodGrupo;
                 ev.Titulo = evento.Titulo;
                 ev.FechaEvento = evento.FechaEvento;
