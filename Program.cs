@@ -30,11 +30,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors(options => {
-    options.WithOrigins("https://deploy.d2id8bw3ov9xdx.amplifyapp.com");
-    options.AllowAnyMethod();
-    options.AllowAnyHeader();
-});
+app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
 app.UseHttpsRedirection();
 
