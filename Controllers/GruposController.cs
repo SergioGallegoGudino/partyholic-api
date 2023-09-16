@@ -104,6 +104,40 @@ namespace partyholic_api.Controllers
             return NoContent();
         }
 
+        [HttpPut("{codGrupo}/{codLogro}/increment")]
+        public async Task<IActionResult> IncrementActual(int codGrupo, int codLogro)
+        {
+            try
+            {
+                var grupoLogro = await _context.GruposLogros
+                    .Where(gl => gl.CodGrupo == codGrupo && gl.CodLogro == codLogro)
+                    .FirstOrDefaultAsync();
+
+                var logroActual = await _context.Logros
+                    .Where(l => l.CodLogro == codLogro)
+                    .FirstOrDefaultAsync();
+
+                if (grupoLogro == null)
+                {
+                    return NotFound();
+                }
+
+                grupoLogro.Actual++; // Aumenta el campo Actual en una unidad
+                if (grupoLogro.Actual >= logroActual.Objetivo)
+                {
+                    grupoLogro.Alcanzado = true;
+                }
+
+                await _context.SaveChangesAsync();
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Error al actualizar el progreso del logro: {ex.Message}");
+            }
+        }
+
         // GET: api/UsuariosGrupoes/getGruposLike/input
 
         [HttpGet("getGruposLike/{input}")]
