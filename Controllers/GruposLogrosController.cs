@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -115,17 +116,28 @@ namespace partyholic_api.Controllers
         // POST: api/GruposLogroes
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<GruposLogro>> PostGruposLogro(GruposLogro gruposLogro)
+        public async Task<ActionResult<GruposLogro>> CrearGrupoConLogros(int codGrupo)
         {
-          if (_context.GruposLogros == null)
-          {
-              return Problem("Entity set 'PartyholicContext.GruposLogros'  is null.");
-          }
-            _context.GruposLogros.Add(gruposLogro);
+
+            List<Logro> logros = await _context.Logros.ToListAsync();
+
+            // Crea las entradas en la tabla GruposLogros
+            foreach (var logro in logros)
+            {
+                GruposLogro grupoLogro = new GruposLogro
+                {
+                    CodGrupo = codGrupo,
+                    CodLogro = logro.CodLogro,
+                    Alcanzado = false,
+                    Actual = 0
+                };
+                _context.GruposLogros.Add(grupoLogro);
+            }
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetGruposLogro", new { id = gruposLogro.Id }, gruposLogro);
+            return Ok();
         }
+
 
         // DELETE: api/GruposLogroes/5
         [HttpDelete("{id}")]
