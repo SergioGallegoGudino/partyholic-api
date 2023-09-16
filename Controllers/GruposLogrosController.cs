@@ -118,7 +118,11 @@ namespace partyholic_api.Controllers
         [HttpPost]
         public async Task<ActionResult<GruposLogro>> CrearGrupoConLogros([FromBody]int codGrupo)
         {
-
+            var grupoExistente = await _context.Grupos.FindAsync(codGrupo);
+            if (grupoExistente == null)
+            {
+                return NotFound("El grupo especificado no existe.");
+            }
             List<Logro> logros = await _context.Logros.ToListAsync();
 
             // Crea las entradas en la tabla GruposLogros
@@ -126,7 +130,7 @@ namespace partyholic_api.Controllers
             {
                 GruposLogro grupoLogro = new GruposLogro
                 {
-                    CodGrupo = codGrupo,
+                    CodGrupo = grupoExistente.CodGrupo,
                     CodLogro = logro.CodLogro,
                     Alcanzado = false,
                     Actual = 0
