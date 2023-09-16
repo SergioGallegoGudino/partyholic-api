@@ -116,14 +116,14 @@ namespace partyholic_api.Controllers
         // POST: api/GruposLogroes
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<GruposLogro>> CrearGrupoConLogros([FromBody]int codGrupo)
+        public async Task<ActionResult<GruposLogro>> CrearGrupoConLogros(Grupo grupo)
         {
-            var grupoExistente = await _context.Grupos.FindAsync(codGrupo);
+            var grupoExistente = await _context.Grupos.FindAsync(grupo.CodGrupo);
             if (grupoExistente == null)
             {
                 return NotFound("El grupo especificado no existe.");
             }
-            return Ok(grupoExistente);
+
             List<Logro> logros = await _context.Logros.ToListAsync();
 
             // Crea las entradas en la tabla GruposLogros
