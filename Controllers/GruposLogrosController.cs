@@ -123,6 +123,7 @@ namespace partyholic_api.Controllers
             {
                 return NotFound("El grupo especificado no existe.");
             }
+            return Ok(grupoExistente);
             List<Logro> logros = await _context.Logros.ToListAsync();
 
             // Crea las entradas en la tabla GruposLogros
