@@ -110,13 +110,16 @@ namespace partyholic_api.Controllers
         {
             if (_context.UsuariosEventos == null)
             {
-                return Problem("Entity set 'PartyholicContext.UsuariosEventos'  is null.");
+                var errorMessage = "Entity set 'PartyholicContext.UsuariosEventos' is null.";
+                return BadRequest(new { error = errorMessage });
             }
+
             _context.UsuariosEventos.Add(usuariosEvento);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUsuariosEventos", new { id = 0 }, usuariosEvento);
+            return CreatedAtAction("GetUsuariosEvento", new { id = usuariosEvento.Id }, usuariosEvento);
         }
+
 
 
         // DELETE: api/UsuariosEventoes/5
