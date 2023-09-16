@@ -116,7 +116,7 @@ namespace partyholic_api.Controllers
         // POST: api/GruposLogroes
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<GruposLogro>> CrearGrupoConLogros(int codGrupo)
+        public async Task<ActionResult<GruposLogro>> CrearGrupoConLogros([FromBody]int codGrupo)
         {
 
             List<Logro> logros = await _context.Logros.ToListAsync();
