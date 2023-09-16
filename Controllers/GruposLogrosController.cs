@@ -136,6 +136,7 @@ namespace partyholic_api.Controllers
                 if (grupoLogro.Actual >= logroActual.Objetivo)
                 {
                     grupoLogro.Alcanzado = true;
+                    grupoLogro.Actual = logroActual.Objetivo;
                 }
 
                 await _context.SaveChangesAsync();
