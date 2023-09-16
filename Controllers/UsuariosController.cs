@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,10 +7,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using partyholic_api.Models;
 using partyholic_api.Dto;
-using System.Web.Http.Description;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+using System.Web.Http.Description;
 using System.Text;
 using System.Security.Cryptography;
 using static System.Net.Mime.MediaTypeNames;
@@ -89,7 +89,7 @@ namespace partyholic_api.Controllers
             {
                 List<UsuarioAuthDto> LstUsuAuth = new List<UsuarioAuthDto>();
                 foreach (Usuario prd in _context.Usuarios.ToList())
-                {
+                {                    
                     if (usuario.Username == prd.Username && passHash == prd.Passwd)
                     {
                         string token = CreateToken(usuario);
@@ -118,14 +118,16 @@ namespace partyholic_api.Controllers
                 var hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(usuario.Passwd));
                 // Get the hashed string.  
 
-                passHash = BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
+                passHash= BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
             }
             try
             {
+                
                 Usuario user = new Usuario();
                 user.Username = usuario.Username;
-                user.Email=usuario.Email;
-                user.Passwd= passHash;
+                user.Email = usuario.Email;
+                user.Passwd = passHash;
+                user.FotoPerfil = usuario.FotoPerfil;
                 user.RolApp = "user";
                 user.Nombre = usuario.Username;
                 user.Privacidad = "public";
