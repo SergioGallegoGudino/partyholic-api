@@ -109,7 +109,7 @@ namespace partyholic_api.Controllers
             _context.UsuariosGrupos.Add(usuariosGrupo);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("getGruposUsuario", new { id = usuariosGrupo.Id }, usuariosGrupo);
+            return Ok(usuariosGrupo);
         }
 
         // GET: api/UsuariosGrupoes/getUsuarios/codgrupo
