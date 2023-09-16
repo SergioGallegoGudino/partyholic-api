@@ -127,7 +127,7 @@ namespace partyholic_api.Controllers
                 user.Username = usuario.Username;
                 user.Email = usuario.Email;
                 user.Passwd = passHash;
-                user.FotoPerfil  = usuario.FotoP;
+                user.FotoPerfil  = usuario.FotoPerfil;
                 user.RolApp = "user";
                 user.Nombre = usuario.Username;
                 user.Privacidad = "public";
