@@ -239,6 +239,20 @@ namespace partyholic_api.Controllers
             return NoContent();
         }
 
+        // GET: api/Usuarios/username/{username}
+        [HttpGet("username/{username}")]
+        public async Task<ActionResult<Usuario>> GetUsuarioByUsername(string username)
+        {
+            var usuario = await _context.Usuarios.SingleOrDefaultAsync(u => u.Username == username);
+        
+            if (usuario == null)
+            {
+                return NotFound();
+            }
+        
+            return usuario;
+        }
+
         private bool UsuarioExists(string id)
         {
             return (_context.Usuarios?.Any(e => e.Username == id)).GetValueOrDefault();
