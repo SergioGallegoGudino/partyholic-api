@@ -115,7 +115,7 @@ namespace partyholic_api.Controllers
             _context.UsuariosEventos.Add(usuariosEvento);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUsuariosEvento", new { id = 0 }, usuariosEvento);
+            return CreatedAtAction("GetUsuariosEventos", new { id = 0 }, usuariosEvento);
         }
 
 
