@@ -159,14 +159,12 @@ namespace partyholic_api.Controllers
 
 
         // DELETE: api/UsuariosGrupoes/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUsuariosGrupo(int id)
+        [HttpDelete("{codGrupo}/{username}")]
+        public async Task<IActionResult> DeleteUsuariosGrupo(string codGrupo, string username)
         {
-            if (_context.UsuariosGrupos == null)
-            {
-                return NotFound();
-            }
-            var usuariosGrupo = await _context.UsuariosGrupos.FindAsync(id);
+            var usuariosGrupo = await _context.UsuariosGrupos
+                    .Where(ug => ug.CodGrupo == int.Parse(codGrupo) && ug.Username == username)
+                    .FirstAsync();
             if (usuariosGrupo == null)
             {
                 return NotFound();
