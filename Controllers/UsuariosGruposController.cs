@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using partyholic_api.Models;
 
 namespace partyholic_api.Controllers
@@ -47,6 +48,23 @@ namespace partyholic_api.Controllers
             }
 
             return Ok(gruposUsuario);
+        }
+
+        [HttpGet("getUsuarioGrupo/{username}/{codGrupo}")]
+        public async Task<ActionResult<IEnumerable<Grupo>>> GetUsuarioGrupo(string username, int codGrupo)
+        {
+            var usuarioGrupo = await _context.UsuariosGrupos
+                .Include(ug => ug.CodGrupoNavigation)
+                .Where(ug => ug.Username == username && ug.CodGrupo == codGrupo)
+                .Select(ug => ug.CodGrupoNavigation)
+                .ToListAsync();
+
+            if (usuarioGrupo == null || !usuarioGrupo.Any())
+            {
+                return Ok();
+            }
+
+            return Ok(usuarioGrupo);
         }
 
 
