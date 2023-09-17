@@ -56,7 +56,7 @@ namespace partyholic_api.Controllers
             var usuarioGrupo = await _context.UsuariosGrupos
                 .Include(ug => ug.CodGrupoNavigation)
                 .Where(ug => ug.Username == username && ug.CodGrupo == codGrupo)
-                .Select(ug => ug.CodGrupoNavigation)
+                .Select(ug => ug.UsernameNavigation)
                 .ToListAsync();
 
             if (usuarioGrupo == null || !usuarioGrupo.Any())
