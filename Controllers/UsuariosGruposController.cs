@@ -113,6 +113,24 @@ namespace partyholic_api.Controllers
             return NoContent();
         }
 
+        [HttpPut("{codGrupo}/{username}")]
+        public async Task<IActionResult> PutAdmin(int codGrupo, string username, UsuariosGrupo usuario)
+        {
+
+            var usuarioGrupo = await _context.UsuariosGrupos.Where(a => a.CodGrupo == codGrupo && a.Username == username).FirstOrDefaultAsync();
+
+            if (usuarioGrupo == null)
+            {
+                return NotFound();
+            }
+
+            usuarioGrupo.EsAdmin = usuario.EsAdmin;
+
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
+
         // POST: api/UsuariosGrupoes
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
