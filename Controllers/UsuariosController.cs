@@ -127,6 +127,10 @@ namespace partyholic_api.Controllers
                 {
                     return BadRequest(new { message = "El correo electrónico ya está en uso." });
                 }
+                if (!usuario.Email.Contains("@"))
+                {
+                    return BadRequest("La dirección de correo electrónico no es válida.");
+                }
         
                 Usuario user = new Usuario();
                 user.Username = usuario.Username;
