@@ -123,11 +123,16 @@ namespace partyholic_api.Controllers
             try
             {
                 
+               if (_context.Usuarios.Any(u => u.Email == usuario.Email))
+                {
+                    return BadRequest(new { message = "El correo electrónico ya está en uso." });
+                }
+        
                 Usuario user = new Usuario();
                 user.Username = usuario.Username;
                 user.Email = usuario.Email;
                 user.Passwd = passHash;
-                user.FotoPerfil  = usuario.FotoPerfil;
+                user.FotoPerfil = usuario.FotoPerfil;
                 user.RolApp = "user";
                 user.Nombre = usuario.Username;
                 user.Privacidad = "public";
