@@ -113,8 +113,8 @@ namespace partyholic_api.Controllers
             return NoContent();
         }
 
-        [HttpPut("{codGrupo}/{username}")]
-        public async Task<IActionResult> PutAdmin(int codGrupo, string username, UsuariosGrupo usuario)
+        [HttpPut("{codGrupo}/{username}/{esAdmin}")]
+        public async Task<IActionResult> PutAdmin(int codGrupo, string username, Boolean esAdmin)
         {
 
             var usuarioGrupo = await _context.UsuariosGrupos.Where(a => a.CodGrupo == codGrupo && a.Username == username).FirstOrDefaultAsync();
@@ -124,7 +124,7 @@ namespace partyholic_api.Controllers
                 return NotFound();
             }
 
-            usuarioGrupo.EsAdmin = usuario.EsAdmin;
+            usuarioGrupo.EsAdmin = esAdmin;
 
             await _context.SaveChangesAsync();
 
