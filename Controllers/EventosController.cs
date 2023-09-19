@@ -89,6 +89,22 @@ namespace partyholic_api.Controllers
 
             return NoContent();
         }
+
+        [HttpGet("CodGrupoEvento/{codGrupo}/{codEvento}")]
+        public async Task<ActionResult<Evento>> GetEventoGrupo(int codGrupo, int codEvento)
+        {
+            var eventoGrupo = await _context.Eventos
+                .Where(e => e.CodGrupo == codGrupo && e.CodEvento == codEvento)
+                .FirstOrDefaultAsync();
+        
+            if (eventoGrupo == null)
+            {
+                return NotFound(); // Opcional: Puedes personalizar el mensaje de error aquí.
+            }
+        
+            return eventoGrupo;
+        }
+        
         // POST api/Eventos
         [HttpPost]
         public IActionResult PostEvento(Evento evento)
